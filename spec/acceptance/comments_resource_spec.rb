@@ -29,27 +29,6 @@ resource 'Comments' do
       expect(status).to eql 200
     end
   end
-  post '/comments' do
-
-    describe 'with valid parameters' do
-      let(:content) { 'My content' }
-      let(:title) { 'My title' }
-      let(:author) { 'My title' }
-
-      example 'Creates a new comment' do
-        do_request
-        expect(response_body).to eq(json_item(Comment.last))
-        expect(status).to eq(201)
-      end
-    end
-
-    describe 'with invalid parameters' do
-      let(:title) { nil }
-      example 'Attempting to create a comment invalid parameters' do
-        expect { do_request }.not_to(change { Comment.count })
-      end
-    end
-  end
 
   patch '/comments/:id' do
 
