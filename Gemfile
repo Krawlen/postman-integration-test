@@ -35,7 +35,7 @@ gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rspec_api_documentation'
+  gem 'rspec_api_documentation', github: "makotogitdev/rspec_api_documentation", ref: "4e8d152f9e7519ee4f3304f5fd460e75a41e6bd0"
   gem 'pry'
   gem 'spring'
 end

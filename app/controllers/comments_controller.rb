@@ -35,10 +35,10 @@ class CommentsController < ApplicationController
     if resource.is_a?(ActiveRecord::Relation) || resource.is_a?(Enumerable)
       render(json: resource, include: include, status: status, adapter: :json_api)
       # If the resource was unchanged, show it. If the resource was changed AND is valid, show it
-    elsif !resource.changed? || resource.valid?
-      render(json: resource, include: include, status: status, adapter: :json_api)
-    else
+    elsif !resource.valid?
       render_errors_from_resource(resource)
+    else
+      render(json: resource, include: include, status: status, adapter: :json_api)
     end
   end
 

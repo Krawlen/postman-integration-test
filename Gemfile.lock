@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/makotogitdev/rspec_api_documentation.git
+  revision: 4e8d152f9e7519ee4f3304f5fd460e75a41e6bd0
+  ref: 4e8d152f9e7519ee4f3304f5fd460e75a41e6bd0
+  specs:
+    rspec_api_documentation (5.1.0)
+      activesupport (>= 3.0.0)
+      mustache (~> 1.0, >= 0.99.4)
+      rspec (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -143,10 +153,6 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    rspec_api_documentation (5.1.0)
-      activesupport (>= 3.0.0)
-      mustache (~> 1.0, >= 0.99.4)
-      rspec (~> 3.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -200,7 +206,7 @@ DEPENDENCIES
   pry
   rails (= 4.2.10)
   rspec-rails
-  rspec_api_documentation
+  rspec_api_documentation!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
