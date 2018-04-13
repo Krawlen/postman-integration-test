@@ -1,0 +1,128 @@
+# doc/api/index.apib
+FORMAT: A1
+
+# Group Cars
+
+Cars operations.
+
+## Creation of car [/api/v1/cars]
++ Attributes (object)
+  + name - Car’s name
+  + brand (required) - Car’s band
+  + year - Year of production
+
+### Add a car [POST]
+
++ Request Creating a car (application/json)
+    + Headers
+        Accept: application/json
+        Content-Type: application/json
+
+    + Body
+        {
+          "car": {
+            "name": "Passat",
+            "brand": "Vokswagen",
+            "year": 2010
+          }
+        }
+
++ Response 201 (application/json)
+    + Headers
+
+        Content-Type: application/json
+
+    + Body
+
+        {
+          "id": 1,
+          "name": "Passat",
+          "brand": "Vokswagen",
+          "year": 2010
+        }
+
++ Request Fails when missing params (application/json)
+
+    + Headers
+
+        Accept: application/json
+        Content-Type: application/json
+
+    + Body
+
+        {
+          "car": {
+            "name": "Passat",
+            "brand": null,
+            "year": 2010
+          }
+        }
+
++ Response 400 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+
+    + Body
+
+        {
+          "brand": [
+            "can't be blank"
+          ]
+        }
+
+## Single Car [/api/v1/cars/:id]
+
++ Parameters
+  + id: 1 (required, string) - Car id
+
+### Deletes a specific car [DELETE]
+
++ Request Deleting a car (application/json)
+
+    + Headers
+
+        Accept: application/json
+
+        Content-Type: application/json
+
++ Response 204 ()
+
+## Cars Collection [/api/v1/cars?{page,per_page}]
+
++ Parameters
+  + page - Current page of cars
+  + per_page - Numer of cars on single page
+
+### Returns all cars [GET]
+
++ Request Get a list of all cars ordered DESC by year (application/json)
+
+    + Headers
+
+        Accept: application/json
+        Content-Type: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+
+    + Body
+
+        [
+          {
+            "id": 2,
+            "name": "Impeza",
+            "brand": "Subaru",
+            "year": 2015
+          },
+          {
+            "id": 1,
+            "name": "Polo",
+            "brand": "Vokswagen",
+            "year": 2011
+          }
+        ]
